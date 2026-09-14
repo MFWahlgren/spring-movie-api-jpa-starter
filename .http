@@ -22,3 +22,6 @@ Content-Type: application/json
 
 ### VERIFY MOVIE WITH DETAILS
 GET http://localhost:8080/api/movies/1
+
+### OPTIONAL: DELETE MOVIE WITH CASCADE
+DELETE http://localhost:8080/api/movies/1

@@ -59,7 +59,6 @@ public class MovieService {
 
     public Movie addDetailsToMovie(Long movieId, MovieDetails movieDetails){
         Movie movieById = getMovieById(movieId);
-        movieDetailsRepository.save(movieDetails);
 
         movieById.setMovieDetails(movieDetails);
 

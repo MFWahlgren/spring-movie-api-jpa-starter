@@ -3,9 +3,7 @@ package ek.osnb.starter.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,7 +27,7 @@ public class Movie {
     )
     private Set<Actor> actorList = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(
             name = "movie_details_id"
     )
