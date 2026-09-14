@@ -1,0 +1,16 @@
+### CREATE MOVIE
+POST http://localhost:8080/api/movies
+Content-Type: application/json
+
+{
+  "title": "The Shawshank Redemption",
+  "releaseYear": 1994,
+  "genre": "Drama",
+  "rating": {
+    "score": 9.3,
+    "voteCount": 2500000
+  }
+}
+
+### GET MOVIES BY ID
+GET http://localhost:8080/api/movies/1
