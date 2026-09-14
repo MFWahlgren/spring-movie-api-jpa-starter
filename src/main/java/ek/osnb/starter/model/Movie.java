@@ -2,6 +2,11 @@ package ek.osnb.starter.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 public class Movie {
     @Id
@@ -14,6 +19,14 @@ public class Movie {
 
     @Embedded
     private Rating rating;
+
+    @ManyToMany
+    @JoinTable(
+            name = "movie_actor",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
+    )
+    private Set<Actor> actorList = new HashSet<>();
 
     public Movie() {}
 
@@ -61,5 +74,13 @@ public class Movie {
 
     public void setRating(Rating rating) {
         this.rating = rating;
+    }
+
+    public Set<Actor> getActorList() {
+        return actorList;
+    }
+
+    public void setActorList(Set<Actor> actorList) {
+        this.actorList = actorList;
     }
 }

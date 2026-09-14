@@ -1,16 +1,34 @@
-### CREATE MOVIE
+### CREATE A MOVIE
 POST http://localhost:8080/api/movies
 Content-Type: application/json
 
 {
-  "title": "The Shawshank Redemption",
-  "releaseYear": 1994,
-  "genre": "Drama",
-  "rating": {
-    "score": 9.3,
-    "voteCount": 2500000
-  }
+  "title": "Inception",
+  "releaseYear": 2010,
+  "genre": "Sci-Fi",
+  "rating": {"score": 8.8, "voteCount": 2000000}
 }
 
 ### GET MOVIES BY ID
+GET http://localhost:8080/api/movies/1
+
+### CREATE ACTOR
+POST http://localhost:8080/api/actors
+Content-Type: application/json
+
+{"name": "Leonardo DiCaprio", "birthYear": 1974}
+
+### ADD ACTOR NO 2
+POST http://localhost:8080/api/actors
+Content-Type: application/json
+
+{"name": "Joseph Gordon-Levitt", "birthYear": 1981}
+
+### ASSIGN ACTOR NO 1 TO MOVIE
+POST http://localhost:8080/api/movies/1/actors/1
+
+### ASSIGN ACTOR NO 2 TO MOVIE
+POST http://localhost:8080/api/movies/1/actors/2
+
+### VERIFY MOVIE WITH ACTORS
 GET http://localhost:8080/api/movies/1
