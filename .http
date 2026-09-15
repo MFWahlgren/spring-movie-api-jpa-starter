@@ -1,27 +1,49 @@
-### ADD MOVIE
+### 1. ADD MOVIE
 POST http://localhost:8080/api/movies
 Content-Type: application/json
 
 {
-  "title": "The Dark Knight",
-  "releaseYear": 2008,
-  "genre": "Action",
-  "rating": {"score": 9.0, "voteCount": 2500000}
+  "title": "The Matrix",
+  "releaseYear": 1999,
+  "genre": "Sci-Fi",
+  "ratingScore": 8.7,
+  "ratingVoteCount": 1800000
 }
 
-### ADD MOVIE DETAILS
+### 2. CREATE ACTOR 1
+POST http://localhost:8080/api/actors
+Content-Type: application/json
+
+{
+  "name": "Keanu Reeves",
+  "birthYear": 1964
+}
+
+### 3. CREATE ACTOR 2
+POST http://localhost:8080/api/actors
+Content-Type: application/json
+
+{
+  "name": "Carrie-Anne Moss",
+  "birthYear": 1967
+}
+
+### 4. ASSIGN ACTOR 1 TO MOVIE
+POST http://localhost:8080/api/movies/1/actors/1
+
+### 5. ASSIGN ACTOR 2 TO MOVIE
+POST http://localhost:8080/api/movies/1/actors/2
+
+### 6. ADD MOVIE DETAILS
 POST http://localhost:8080/api/movies/1/details
 Content-Type: application/json
 
 {
-  "plot": "Batman faces the Joker in a battle for Gotham soul.",
-  "budget": 185000000,
-  "runtime": 152,
+  "plot": "A computer hacker learns about the true nature of reality.",
+  "budget": 63000000,
+  "runtime": 136,
   "productionCompany": "Warner Bros"
 }
 
-### VERIFY MOVIE WITH DETAILS
+### 7. VERIFY MOVIE WITH DETAILS AND ACTORS
 GET http://localhost:8080/api/movies/1
-
-### OPTIONAL: DELETE MOVIE WITH CASCADE
-DELETE http://localhost:8080/api/movies/1

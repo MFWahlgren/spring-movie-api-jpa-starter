@@ -1,5 +1,7 @@
 package ek.osnb.starter.controller;
 
+import ek.osnb.starter.dto.CreateMovieRequest;
+import ek.osnb.starter.dto.MovieResponse;
 import ek.osnb.starter.model.Movie;
 import ek.osnb.starter.model.MovieDetails;
 import ek.osnb.starter.service.MovieService;
@@ -18,17 +20,17 @@ public class MovieController {
     }
 
     @PostMapping
-    public ResponseEntity<Movie> createMovie(@RequestBody Movie movie) {
-        return ResponseEntity.ok(movieService.createMovie(movie));
+    public ResponseEntity<MovieResponse> createMovie(@RequestBody CreateMovieRequest request) {
+        return ResponseEntity.ok(movieService.createMovie(request));
     }
 
     @GetMapping
-    public ResponseEntity<List<Movie>> getAllMovies() {
+    public ResponseEntity<List<MovieResponse>> getAllMovies() {
         return ResponseEntity.ok(movieService.getAllMovies());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Movie> getMovieById(@PathVariable Long id) {
+    public ResponseEntity<MovieResponse> getMovieById(@PathVariable Long id) {
         return ResponseEntity.ok(movieService.getMovieById(id));
     }
 
